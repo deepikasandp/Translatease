@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { assocPath } from "ramda";
 
 const CommonContext = createContext({
   config: [],
@@ -13,16 +14,9 @@ export const CommonProvider = ({ children, config, landingPageConfig, landingPag
   const [currentLandingPageConfig, setLandingPageConfig] = useState(landingPageConfig);
   const [currentLandingPageData, setLandingPageData] = useState(landingPageData);
 
+  // Using Ramda's assocPath for immutability
   const handleChange = (path, value) => {
-    const setDeep = (obj, path, value) => {
-      const keys = path.split('.');
-      const lastKey = keys.pop();
-      const lastObj = keys.reduce((o, key) => o[key] = o[key] || {}, obj);
-      lastObj[lastKey] = value;
-      return { ...obj };
-    };
-
-    setLandingPageData((prevData) => setDeep(prevData, path, value));
+    setLandingPageData((prevData) => assocPath(path.split("."), value, prevData));
   };
 
   return (

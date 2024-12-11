@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useCommonContext } from '../../context/CommonContext';
 import { Container, Paper } from '@mui/material';
 import LanguageSelector from  './LanguageSelector';
 import Search from  './Search';
 import Filters from  './Filters';
-// import { setDeep } from '../utils';
 
 const LandingPage = ( {onLanguageChange} ) => {
   const { landingPageConfig, landingPageData } = useCommonContext();
@@ -61,6 +61,10 @@ const LandingPage = ( {onLanguageChange} ) => {
       )}
     </div>
   );
+};
+
+LandingPage.propTypes = {
+  onLanguageChange: PropTypes.func.isRequired, // A function to handle language change
 };
 
 export default LandingPage;

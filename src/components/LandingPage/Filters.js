@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Field from './Field';
+import { SectionConfig } from './types'; 
 
 import { styled } from '@mui/material/styles';
 
@@ -24,6 +26,10 @@ const Filters = (props) => {
       ))}
     </StyledStack>
   );
+};
+
+Filters.propTypes = {
+  sectionConfig: PropTypes.shape(SectionConfig).isRequired,
 };
 
 export default Filters;

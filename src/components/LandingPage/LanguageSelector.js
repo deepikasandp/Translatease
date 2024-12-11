@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useCommonContext } from '../../context/CommonContext';
 import {FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import { SectionConfig } from './types'; 
 
 const StyledStack = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -73,6 +75,11 @@ const LanguageSelector = (props) => {
         })}
     </StyledStack>
   );
+};
+
+LanguageSelector.propTypes = {
+  sectionConfig: PropTypes.shape(SectionConfig).isRequired,
+  onLanguageChange: PropTypes.func.isRequired,
 };
 
 export default LanguageSelector;

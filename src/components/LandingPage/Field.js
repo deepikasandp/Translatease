@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useCommonContext } from '../../context/CommonContext';
 import {FormControl, InputLabel, Select, MenuItem, Box, TextField, Button} from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -6,6 +7,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
+import { Field as FieldType } from './types'; 
 
 const Field = (props) => {
   const { landingPageData, handleChange } = useCommonContext();
@@ -76,6 +78,10 @@ const Field = (props) => {
     default:
       return null;
   }
+};
+
+Field.propTypes = {
+  field: PropTypes.shape(FieldType).isRequired,
 };
 
 export default Field;

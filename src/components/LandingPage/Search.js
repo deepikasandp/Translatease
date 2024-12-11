@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Field from './Field';
+import { SectionConfig } from './types';
 
 const StyledStack = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -22,6 +24,10 @@ const Search = (props) => {
       ))}
     </StyledStack>
   );
+};
+
+Search.propTypes = {
+  sectionConfig: PropTypes.shape(SectionConfig).isRequired,
 };
 
 export default Search;
