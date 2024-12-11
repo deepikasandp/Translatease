@@ -1,0 +1,58 @@
+{
+  "header": {
+    "title": "Recherche et Filtre",
+    "description": "Utilisez la recherche et les filtres ci-dessous pour affiner vos résultats.",
+    "fields": {
+      "selectedLanguage": {
+        "label": "Choisir la langue",
+        "options": {
+          "en": "Anglais",
+          "fr": "Français"
+        }
+      }
+    }
+  },
+  "search": {
+    "fields": {
+      "searchTerm": {
+        "label": "Saisir un terme de recherche",
+        "placeholder": "Entrez un terme de recherche"
+      },
+      "searchButton": {
+        "label": "Rechercher"
+      }
+    }
+  },
+  "filters": {
+    "fields": {
+      "category": {
+        "label": "Catégorie",
+        "placeholder": "Choisir une catégorie",
+        "options": {
+          "politics": "Politique",
+          "economy": "Économie",
+          "health": "Santé",
+          "technology": "Technologie",
+          "environment": "Environnement"
+        }
+      },
+      "startDate": {
+        "label": "Date de début",
+        "placeholder": "Choisir une date de début"
+      },
+      "endDate": {
+        "label": "Date de fin",
+        "placeholder": "Choisir une date de fin"
+      },
+      "status": {
+        "label": "Statut",
+        "placeholder": "Choisir un statut",
+        "options": {
+          "active": "Actif",
+          "inactive": "Inactif",
+          "pending": "En attente"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "name": "LandingPage",
+    "defaultLanguage": "en",
+    "sections": [
+      {
+        "type": "header",
+        "titleKey": "header.title",
+        "descriptionKey": "header.description",
+        "fields": [
+          {
+            "key": "selectedLanguage",
+            "labelKey": "header.fields.selectedLanguage.label",
+            "type": "select",
+            "options": [
+              {
+                "key": "en",
+                "labelKey": "header.fields.selectedLanguage.options.en"
+              },
+              {
+                "key": "fr",
+                "labelKey": "header.fields.selectedLanguage.options.fr"
+              }
+            ],
+            "path": "header.selectedLanguage"
+          }
+        ]
+      },
+      {
+        "type": "search",
+        "fields": [
+          {
+            "key": "searchTerm",
+            "labelKey": "search.fields.searchTerm.label",
+            "type": "text",
+            "required": false,
+            "placeholderKey": "search.fields.searchTerm.placeholder",
+            "path": "search.searchTerm"
+          },
+          {
+            "key": "searchButton",
+            "labelKey": "search.fields.searchButton.label",
+            "type": "button",
+            "actionType": "submit"
+          }
+        ]
+      },
+      {
+        "type": "filters",
+        "fields": [
+          {
+            "key": "category",
+            "labelKey": "filters.fields.category.label",
+            "type": "select",
+            "required": true,
+            "placeholderKey": "filters.fields.category.placeholder",
+            "options": [
+              {
+                "key": "politics",
+                "labelKey": "filters.fields.category.options.politics"
+              },
+              {
+                "key": "economy",
+                "labelKey": "filters.fields.category.options.economy"
+              },
+              {
+                "key": "health",
+                "labelKey": "filters.fields.category.options.health"
+              },
+              {
+                "key": "technology",
+                "labelKey": "filters.fields.category.options.technology"
+              },
+              {
+                "key": "environment",
+                "labelKey": "filters.fields.category.options.environment"
+              }
+            ],
+            "path": "filters.category"
+          },
+          {
+            "key": "startDate",
+            "labelKey": "filters.fields.startDate.label",
+            "type": "date",
+            "required": true,
+            "placeholderKey": "filters.fields.startDate.placeholder",
+            "path": "filters.startDate"
+          },
+          {
+            "key": "endDate",
+            "labelKey": "filters.fields.endDate.label",
+            "type": "date",
+            "required": true,
+            "placeholderKey": "filters.fields.endDate.placeholder",
+            "path": "filters.endDate"
+          },
+          {
+            "key": "status",
+            "labelKey": "filters.fields.status.label",
+            "type": "select",
+            "required": false,
+            "placeholderKey": "filters.fields.status.placeholder",
+            "options": [
+              {
+                "key": "active",
+                "labelKey": "filters.fields.status.options.active"
+              },
+              {
+                "key": "inactive",
+                "labelKey": "filters.fields.status.options.inactive"
+              },
+              {
+                "key": "pending",
+                "labelKey": "filters.fields.status.options.pending"
+              }
+            ],
+            "path": "filters.status"
+          }
+        ]
+      }
+    ]
+  }
+]

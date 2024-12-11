@@ -1,0 +1,58 @@
+{
+  "header": {
+    "title": "Search & Filter",
+    "description": "Use the search and filters below to narrow your search results.",
+    "fields": {
+      "selectedLanguage": {
+        "label": "Select Language",
+        "options": {
+          "en": "English",
+          "fr": "French"
+        }
+      }
+    }
+  },
+  "search": {
+    "fields": {
+      "searchTerm": {
+        "label": "Enter Search Term",
+        "placeholder": "Enter search term"
+      },
+      "searchButton": {
+        "label": "Search"
+      }
+    }
+  },
+  "filters": {
+    "fields": {
+      "category": {
+        "label": "Category",
+        "placeholder": "Select Category",
+        "options": {
+          "politics": "Politics",
+          "economy": "Economy",
+          "health": "Health",
+          "technology": "Technology",
+          "environment": "Environment"
+        }
+      },
+      "startDate": {
+        "label": "Start Date",
+        "placeholder": "Select Start Date"
+      },
+      "endDate": {
+        "label": "End Date",
+        "placeholder": "Select End Date"
+      },
+      "status": {
+        "label": "Status",
+        "placeholder": "Select Status",
+        "options": {
+          "active": "Active",
+          "inactive": "Inactive",
+          "pending": "Pending"
+        }
+      }
+    }
+  }
+}
