@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCommonContext } from '../../context/CommonContext';
 import {FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
@@ -25,10 +26,16 @@ const StyledSubTitle = styled('h2')(({ theme }) => ({
 }));
 
 const LanguageSelector = (props) => {
+  const { config, landingPageData, handleChange } = useCommonContext();
   const {titleKey, descriptionKey, fields } = props.sectionConfig;
   const { t } = useTranslation();
   
   const getTranslatedValue = (key) => t(key);
+
+  const handleLanguageChange = (path, value) => {
+    handleChange(path, value);
+    props.onLanguageChange(value); // Propagates the change to the App level
+  };
 
   return (
     <StyledStack>
@@ -37,7 +44,7 @@ const LanguageSelector = (props) => {
         <StyledSubTitle>{getTranslatedValue(descriptionKey)}</StyledSubTitle>
       </div>
       {fields.map((field) => {
-        const value = field.path.split('.').reduce((obj, key) => obj?.[key], props.pageData);
+        const value = field.path.split('.').reduce((obj, key) => obj?.[key], landingPageData);
         switch (field.type) {
           case 'select':
             return (
@@ -49,8 +56,8 @@ const LanguageSelector = (props) => {
                 <Select
                   labelId={field.key}
                   label={getTranslatedValue(field.labelKey)}
-                  value={value || props.defaultLanguage}
-                  onChange={(e) => props.handleChange(field.path, e.target.value)}
+                  value={(value || config.defaultLanguage) ?? ''}
+                  onChange={(e) => handleLanguageChange(field.path, e.target.value)}
                 >
                   {field.options?.map((option) => (
                     <MenuItem key={option.key} value={option.key}>

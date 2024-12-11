@@ -20,7 +20,7 @@ const Filters = (props) => {
   return (
     <StyledStack>
       {fields.map((field) => (
-        <Field key={field.key} field={field} handleChange={props.handleChange} pageData={props.pageData} />
+        <Field key={field.key} field={field} />
       ))}
     </StyledStack>
   );

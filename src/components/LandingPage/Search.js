@@ -17,9 +17,9 @@ const Search = (props) => {
   const {fields } = props.sectionConfig;
   return (
     <StyledStack>
-    {fields.map((field) => (
-      <Field key={field.key} field={field} handleChange={props.handleChange} pageData={props.pageData} />
-    ))}
+      {fields.map((field) => (
+        <Field key={field.key} field={field} />
+      ))}
     </StyledStack>
   );
 };

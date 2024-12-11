@@ -1,10 +1,10 @@
 import { assocPath } from "ramda";
-import objectJson from "../data/LandingPage/object.json";
+import dataJson from "../data/LandingPage/data.json";
 
-export const setDeep = (obj,path,value) => {
-  return assocPath(path.split("."), value)(obj)
+export const setDeep = (data,path,value) => {
+  return assocPath(path.split("."), value)(data)
 };
 
 export const getData = () => {
-  return objectJson;
+  return dataJson;
 };

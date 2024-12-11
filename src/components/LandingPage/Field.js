@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCommonContext } from '../../context/CommonContext';
 import {FormControl, InputLabel, Select, MenuItem, Box, TextField, Button} from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -7,11 +8,12 @@ import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
 
 const Field = (props) => {
-  const { field, handleChange } = props;
+  const { landingPageData, handleChange } = useCommonContext();
+  const { field } = props;
   const { t } = useTranslation();
 
   const getTranslatedValue = (key) => t(key);
-  const value = field.path?.split('.').reduce((obj, key) => obj?.[key], props.pageData);
+  const value = field.path?.split('.').reduce((obj, key) => obj?.[key], landingPageData);
  
   switch (field.type) {
     case 'select':
@@ -57,7 +59,7 @@ const Field = (props) => {
           placeholder={getTranslatedValue(field.placeholderKey)}
           label={getTranslatedValue(field.labelKey)}
           value={value ?? ''}
-          onChange={(e) => props.handleChange(field.path, e.target.value)}
+          onChange={(e) => handleChange(field.path, e.target.value)}
           fullWidth
           key={field.key}
         />

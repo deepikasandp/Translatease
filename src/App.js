@@ -4,12 +4,13 @@ import i18next from 'i18next';
 import LandingPage from "./components/LandingPage/LandingPage";
 import enTranslations from './locales/en.json';
 import frTranslations from './locales/fr.json';
-import landingPageconfig from "./data/LandingPage/config.json";
+import { CommonProvider } from './context/CommonContext';
+import config from "./data/config.json";
 import { getData } from "./components/utils";
 import "./styles/styles.css";
 
 i18next.init({
-  lng: landingPageconfig.defaultLanguage,
+  lng: config.defaultLanguage,
   fallbackLng: 'en',
   resources: {
     en: { translation: enTranslations },
@@ -43,23 +44,34 @@ export default function App() {
   //   i18next.changeLanguage(newLanguage);
   // };
 
-  const [language, setLanguage] = useState(landingPageconfig.defaultLanguage);
+  const [language, setLanguage] = useState(config.defaultLanguage);
   
   useEffect(() => {
     i18next.changeLanguage(language);
   }, [language]);
+
+  const getLandingPageConfig = () => {
+    const landingPageConfig = config.find((page) => page.name === 'LandingPage');
+    if (landingPageConfig) {
+      return landingPageConfig;
+    } else {
+      console.error('LandingPage config not found.');
+    }
+  };
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
   };
 
   return (
-    <I18nextProvider i18n={i18next}>
-      <LandingPage 
-        config={landingPageconfig}
-        object={getData()}
-        onLanguageChange={handleLanguageChange}
-      />
-    </I18nextProvider>
+    <CommonProvider 
+      config={config}
+      landingPageConfig={getLandingPageConfig()}
+      landingPageData={getData()}
+    >
+      <I18nextProvider i18n={i18next}>
+        <LandingPage onLanguageChange={handleLanguageChange} />
+      </I18nextProvider>
+    </CommonProvider>
   );
 }
