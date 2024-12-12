@@ -7,7 +7,7 @@ import frTranslations from './locales/fr.json';
 import { CommonProvider } from './context/CommonContext';
 import config from "./data/config.json";
 import { getData } from "./components/utils";
-import "./styles/styles.css";
+import "./styles/landingPageStyles.js";
 
 i18next.init({
   lng: config.defaultLanguage,

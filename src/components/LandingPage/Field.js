@@ -20,8 +20,7 @@ const Field = (props) => {
   switch (field.type) {
     case 'select':
       return (
-        <FormControl 
-          sx={{minWidth: '200px'}}
+        <FormControl
           key={field.path}
         >
           <InputLabel id={field.key}>{getTranslatedValue(field.labelKey)}</InputLabel>

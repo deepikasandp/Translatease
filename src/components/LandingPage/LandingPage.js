@@ -49,7 +49,7 @@ const LandingPage = ( {onLanguageChange} ) => {
             <div key="data">
               <Paper variant="elevation" style={{ margin: '10px' }}>
                 <div key="data1" style={{ textAlign: 'left', padding: '10px'}}>
-                  <span>Data:</span>
+                  <span>POST Data:</span>
                   <pre>{JSON.stringify(landingPageData, null, 2)}</pre>
                 </div>
               </Paper>
